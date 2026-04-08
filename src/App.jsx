@@ -288,6 +288,7 @@ if (showSplash) {
   className="app-shell"
   style={{
     paddingTop: 'env(safe-area-inset-top)',
+    paddingBottom: 'env(safe-area-inset-bottom)'
   }}
 >
       <div className="container">
