@@ -261,15 +261,15 @@ export default function App() {
   }
 if (showSplash) {
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: '#000',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+   <div style={{
+  height: '100vh',
+  background: '#000',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingTop: 'env(safe-area-inset-top)',
+  paddingBottom: 'env(safe-area-inset-bottom)'
+}}>
       <img
         src="/apple-touch-icon.png"
         alt="Virgilio"
