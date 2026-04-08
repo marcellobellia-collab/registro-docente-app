@@ -284,7 +284,12 @@ if (showSplash) {
   );
 }
   return (
-    <div className="app-shell">
+<div
+  className="app-shell"
+  style={{
+    paddingTop: 'env(safe-area-inset-top)',
+  }}
+>
       <div className="container">
         <div className="hero">
           <div>
