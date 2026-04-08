@@ -74,3 +74,17 @@ button, input, select, textarea { font: inherit; }
   .tabs { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .two-col { grid-template-columns: 1fr; }
 }
+@keyframes fadeSplash {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
