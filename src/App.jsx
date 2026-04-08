@@ -111,6 +111,7 @@ export default function App() {
   const [editingLessonId, setEditingLessonId] = useState(null);
   const [editingTestId, setEditingTestId] = useState(null);
   const [editingTaskId, setEditingTaskId] = useState(null);
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -133,6 +134,11 @@ export default function App() {
     setLessonForm((prev) => ({ ...prev, classId: prev.classId || data.classes[0]?.id || '' }));
     setTestForm((prev) => ({ ...prev, classId: prev.classId || data.classes[0]?.id || '' }));
   }, [data.classes, quickClassId]);
+
+  useEffect(() => {
+  const timer = setTimeout(() => setShowSplash(false), 1200);
+  return () => clearTimeout(timer);
+}, []);
 
   const classMap = useMemo(() => Object.fromEntries(data.classes.map((c) => [c.id, c.name])), [data.classes]);
   const todaySchedule = useMemo(() => data.schedule.filter((s) => s.day === todayName()).sort((a, b) => a.hour.localeCompare(b.hour)), [data.schedule]);
@@ -253,7 +259,30 @@ export default function App() {
     };
     reader.readAsText(file);
   }
-
+if (showSplash) {
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        background: '#000',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <img
+        src="/apple-touch-icon.png"
+        alt="Virgilio"
+        style={{
+          width: '140px',
+          height: '140px',
+          objectFit: 'contain',
+          animation: 'fadeSplash 1.2s ease',
+        }}
+      />
+    </div>
+  );
+}
   return (
     <div className="app-shell">
       <div className="container">
